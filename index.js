@@ -14,10 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 
 //connection to db
 mongoose.set("useFindAndModify", false);
-let port = 3000||process.env.port;
+
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
     console.log("Connected to db!");
-
+    let port = process.env.PORT || 3000;
     app.listen(port, () => console.log("Server Up and running"));
 });
 
